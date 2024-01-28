@@ -5,10 +5,6 @@ import {CalendarDateType} from "../../types/date";
 import CurrentDate from "../../components/CurrentDate";
 import EmptyDate from "../../components/EmptyDate";
 
-type setIsWorkoutCreating = {
-    setIsWorkoutCreating: (value: boolean) => void
-}
-
 const Main = () => {
 
     const [selectedDate, setSelectedDate] = useState<CalendarDateType>({});
@@ -18,14 +14,15 @@ const Main = () => {
         setSelectedDate(date);
     }
 
-    const addWorkout = () => {
-        setWorkout('test');
-    }
-
     return (
         <View style={styles.calendarContainer}>
             <View style={styles.calendar}>
                 <Calendar
+                    theme={{
+                        calendarBackground: '#2b2d30',
+                        dayTextColor: 'rgba(246,247,253,0.4)',
+                        monthTextColor: 'white'
+                    }}
                     onDayPress={onDateChange}
                     firstDay={1}
                     markedDates={{
@@ -51,7 +48,7 @@ export default Main;
 const styles = StyleSheet.create({
     calendarContainer: {
         width: '100%',
-        backgroundColor: '#fff',
+        backgroundColor: '#2b2d30',
         flex: 1
     },
     calendar: {

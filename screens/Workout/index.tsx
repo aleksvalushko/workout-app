@@ -9,7 +9,7 @@ import {StyleSheet, Text, View} from 'react-native';
     );
 }
 
-export default Workout
+export default Workout;
 
 const styles = StyleSheet.create({
     container: {
