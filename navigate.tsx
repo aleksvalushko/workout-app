@@ -5,6 +5,7 @@ import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import Login from "./screens/Login";
 import useAuth from "./hooks/useAuth";
+import COLORS from "./colors";
 
 export type RootStackParamList = {
     Login: undefined;
@@ -16,39 +17,29 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const Navigate = () => {
     const {user} = useAuth();
-    if (user) {
+    if (user?.isAuth) {
         return (
             <NavigationContainer>
                 <RootStack.Navigator initialRouteName="Main">
-                    <RootStack.Screen name='Login' component={Login} options={{
-                        title: 'Login', headerStyle: {
-                            backgroundColor: '#2b2d30'
-                        },
-                        headerTitleStyle: {
-                            color: 'white'
-                        },
-                        headerTitleAlign: 'center',
-                        headerTintColor: 'white'
-                    }}/>
                     <RootStack.Screen name='Main' component={Main} options={{
                         title: 'Main', headerStyle: {
-                            backgroundColor: '#2b2d30'
+                            backgroundColor: COLORS.darkGray
                         },
                         headerTitleStyle: {
-                            color: 'white'
+                            color: COLORS.white
                         },
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white'
+                        headerTintColor: COLORS.white
                     }}/>
                     <RootStack.Screen name='Workout' component={Workout} options={{
                         title: 'Workout', headerStyle: {
-                            backgroundColor: '#2b2d30'
+                            backgroundColor: COLORS.darkGray
                         },
                         headerTitleStyle: {
-                            color: 'white'
+                            color: COLORS.white
                         },
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white'
+                        headerTintColor: COLORS.white
                     }}/>
                 </RootStack.Navigator>
             </NavigationContainer>
@@ -59,13 +50,13 @@ const Navigate = () => {
                 <RootStack.Navigator initialRouteName="Login">
                     <RootStack.Screen name='Login' component={Login} options={{
                         title: 'Login', headerStyle: {
-                            backgroundColor: '#2b2d30'
+                            backgroundColor: COLORS.darkGray
                         },
                         headerTitleStyle: {
-                            color: 'white'
+                            color: COLORS.white
                         },
                         headerTitleAlign: 'center',
-                        headerTintColor: 'white'
+                        headerTintColor: COLORS.white
                     }}/>
                 </RootStack.Navigator>
             </NavigationContainer>

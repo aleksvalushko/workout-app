@@ -4,14 +4,16 @@ import {NativeStackNavigationProp} from "react-native-screens/native-stack";
 import {RootStackParamList} from "../../navigate";
 import {signOut} from "firebase/auth";
 import {auth} from "../../App";
+import useAuth from "../../hooks/useAuth";
 
 export default function EmptyDate() {
 
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    const {setUser} = useAuth();
 
     const handleSignOut = async () => {
         await signOut(auth);
-        navigation.navigate('Login');
+        setUser({isAuth: false});
     }
 
     return (

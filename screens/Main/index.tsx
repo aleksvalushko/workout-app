@@ -4,6 +4,7 @@ import {Calendar} from "react-native-calendars";
 import {CalendarDateType} from "../../types/date";
 import CurrentDate from "../../components/CurrentDate";
 import EmptyDate from "../../components/EmptyDate";
+import COLORS from "../../colors";
 
 const Main = () => {
 
@@ -20,15 +21,16 @@ const Main = () => {
                 <Calendar
                     theme={{
                         calendarBackground: '#2b2d30',
-                        dayTextColor: 'rgba(246,247,253,0.4)',
-                        monthTextColor: 'white'
+                        dayTextColor: COLORS.white,
+                        monthTextColor: COLORS.white,
+                        textDisabledColor: COLORS.gray
                     }}
                     onDayPress={onDateChange}
                     firstDay={1}
                     markedDates={{
                         [selectedDate.dateString ?? '']: {
                             selected: true,
-                            selectedColor: 'rgb(33, 150, 243)',
+                            selectedColor: COLORS.blue,
                             marked: !!workout
                         }
                     }}
@@ -48,7 +50,7 @@ export default Main;
 const styles = StyleSheet.create({
     calendarContainer: {
         width: '100%',
-        backgroundColor: '#2b2d30',
+        backgroundColor: COLORS.darkGray,
         flex: 1
     },
     calendar: {

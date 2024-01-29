@@ -1,9 +1,11 @@
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, SafeAreaView} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Navigate from "./navigate";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
+
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyBCXY4rgI5oq55Dff5nzQBwEPzbD8AYWbc",
@@ -29,10 +31,10 @@ const App = () => {
     });
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <Navigate />
             <StatusBar style="auto"/>
-        </SafeAreaView>
+        </View>
     );
 }
 

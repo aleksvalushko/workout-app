@@ -1,11 +1,9 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 
- const Workout = () => {
+const Workout = () => {
 
     return (
-        <View style={styles.container}>
-                <Text style={{width: '100%'}}>Workout</Text>
-        </View>
+        <Text style={styles.container}>Workout</Text>
     );
 }
 
