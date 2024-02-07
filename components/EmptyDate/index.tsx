@@ -19,10 +19,10 @@ export default function EmptyDate() {
     return (
         <View style={styles.addWorkoutButton}>
             <View style={styles.button}>
-                <Button title={'Add workout'} onPress={() => navigation.navigate('Workout')}/>
+                <Button title={'Добавить тренировку'} onPress={() => navigation.navigate('Workout')}/>
             </View>
             <View style={styles.button}>
-                <Button title={'Sign out'} onPress={handleSignOut}/>
+                <Button title={'Выйти'} onPress={handleSignOut}/>
             </View>
         </View>
     );

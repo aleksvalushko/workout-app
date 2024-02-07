@@ -79,7 +79,7 @@ const Login = () => {
                     loginError ? <Text style={styles.validationError}>Error: {loginError}</Text> : ''
                 }
                 <View style={styles.loginButton}>
-                    <Button title={'Login'} onPress={login} color='black'/>
+                    <Button title={'Войти'} onPress={login} color='black'/>
                 </View>
             </KeyboardAwareScrollView>
         </View>

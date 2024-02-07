@@ -20,9 +20,9 @@ const Navigate = () => {
     if (user?.isAuth) {
         return (
             <NavigationContainer>
-                <RootStack.Navigator initialRouteName="Main">
-                    <RootStack.Screen name='Main' component={Main} options={{
-                        title: 'Main', headerStyle: {
+                <RootStack.Navigator initialRouteName="Workout">
+                    <RootStack.Screen name='Workout' component={Workout} options={{
+                        title: 'Упражнения', headerStyle: {
                             backgroundColor: COLORS.darkGray
                         },
                         headerTitleStyle: {
@@ -31,8 +31,8 @@ const Navigate = () => {
                         headerTitleAlign: 'center',
                         headerTintColor: COLORS.white
                     }}/>
-                    <RootStack.Screen name='Workout' component={Workout} options={{
-                        title: 'Workout', headerStyle: {
+                    <RootStack.Screen name='Main' component={Main} options={{
+                        title: 'Главная', headerStyle: {
                             backgroundColor: COLORS.darkGray
                         },
                         headerTitleStyle: {
@@ -49,7 +49,7 @@ const Navigate = () => {
             <NavigationContainer>
                 <RootStack.Navigator initialRouteName="Login">
                     <RootStack.Screen name='Login' component={Login} options={{
-                        title: 'Login', headerStyle: {
+                        title: 'Войти', headerStyle: {
                             backgroundColor: COLORS.darkGray
                         },
                         headerTitleStyle: {

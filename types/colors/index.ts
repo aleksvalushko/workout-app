@@ -5,5 +5,6 @@ export type ColorsType = {
     darkGray: string;
     lightGray: string;
     gray: string;
+    graphiteGray: string;
     red: string;
 }
