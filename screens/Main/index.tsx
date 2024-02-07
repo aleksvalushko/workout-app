@@ -4,10 +4,7 @@ import {Calendar} from "react-native-calendars";
 import {CalendarDateType} from "../../types/date";
 import CurrentDate from "../../components/CurrentDate";
 import EmptyDate from "../../components/EmptyDate";
-
-type setIsWorkoutCreating = {
-    setIsWorkoutCreating: (value: boolean) => void
-}
+import COLORS from "../../colors";
 
 const Main = () => {
 
@@ -18,20 +15,22 @@ const Main = () => {
         setSelectedDate(date);
     }
 
-    const addWorkout = () => {
-        setWorkout('test');
-    }
-
     return (
         <View style={styles.calendarContainer}>
             <View style={styles.calendar}>
                 <Calendar
+                    theme={{
+                        calendarBackground: '#2b2d30',
+                        dayTextColor: COLORS.white,
+                        monthTextColor: COLORS.white,
+                        textDisabledColor: COLORS.gray
+                    }}
                     onDayPress={onDateChange}
                     firstDay={1}
                     markedDates={{
                         [selectedDate.dateString ?? '']: {
                             selected: true,
-                            selectedColor: 'rgb(33, 150, 243)',
+                            selectedColor: COLORS.blue,
                             marked: !!workout
                         }
                     }}
@@ -51,7 +50,7 @@ export default Main;
 const styles = StyleSheet.create({
     calendarContainer: {
         width: '100%',
-        backgroundColor: '#fff',
+        backgroundColor: COLORS.darkGray,
         flex: 1
     },
     calendar: {

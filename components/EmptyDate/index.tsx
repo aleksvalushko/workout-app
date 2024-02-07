@@ -1,33 +1,38 @@
-import {StyleSheet, Button, View} from 'react-native';
-import {useState} from "react";
-type AddWorkoutType = {
-    addWorkout: () => void
-}
+import {Button, StyleSheet, View} from 'react-native';
+import {useNavigation} from "@react-navigation/native";
+import {NativeStackNavigationProp} from "react-native-screens/native-stack";
+import {RootStackParamList} from "../../navigate";
+import {signOut} from "firebase/auth";
+import {auth} from "../../App";
+import useAuth from "../../hooks/useAuth";
 
-export default function EmptyDate({addWorkout}: AddWorkoutType) {
+export default function EmptyDate() {
 
-    const [selectedDate, setSelectedDate] = useState();
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    const {setUser} = useAuth();
+
+    const handleSignOut = async () => {
+        await signOut(auth);
+        setUser({isAuth: false});
+    }
 
     return (
-        <View style={styles.container}>
-                <Button title={'Add workout'} onPress={addWorkout} />
+        <View style={styles.addWorkoutButton}>
+            <View style={styles.button}>
+                <Button title={'Добавить тренировку'} onPress={() => navigation.navigate('Workout')}/>
+            </View>
+            <View style={styles.button}>
+                <Button title={'Выйти'} onPress={handleSignOut}/>
+            </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        flex: 1,
-        alignItems: 'center',
+    addWorkoutButton: {
+        width: '50%'
     },
-    workout: {
-        width: '100%',
-        height: 150,
-        backgroundColor: '#fafafa',
-        borderLeftWidth: 3,
-        borderLeftColor: 'rgb(0, 187, 242)',
-        alignItems: 'center',
-        justifyContent: 'center'
+    button: {
+        marginVertical: 20
     }
 });
